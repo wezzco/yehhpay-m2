@@ -5,7 +5,7 @@ namespace Wezz\Yehhpay\Block\Adminhtml\Order\View;
 /**
  * Class Info
  *
- * Block class to render Yehhpay tranasction information at Order View
+ * Block class to render Yehhpay's tranasction information at Order View
  *
  * @package Wezz\Yehhpay\Block\Adminhtml\Order\View
  */
