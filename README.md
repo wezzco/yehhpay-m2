@@ -44,8 +44,17 @@ composer require wezz/yehhpay-m2
 
 `
 php bin/magento module:enable Wezz_Yehhpay
+`
+`
 php bin/magento setup:upgrade
+`
+`
 php bin/magento cache:clean
+`
+
+And, when running production mode:
+
+`
 php bin/magento setup:static-content:deploy
 `
 
