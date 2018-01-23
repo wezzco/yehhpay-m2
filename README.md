@@ -24,48 +24,38 @@ https://api.yehhpay.nl/documentation/merchant/api
 
 # Installation
 
-## 1. Preparation
-
-### 1.1 Backup
-
-Make a backup of all your files and database before starting installation.
-
-### 1.2 Disable Caching
-
-Log into the Magento Admin and disable all caching using the path below:
-
-__System__ -> __Cache Management__
-
-Select all cache types and disable them.
-
-### 1.3 Disable Compilation
-
-Next, make sure compilation is disabled using the path below:
-
-__System__ -> __Tools__ -> __Compilation__
 
 ## 2. Installation
 
-### 2.1 Installation Through FTP
+### 2.1 Installation Magento Marketplace
 
-Upload all your files to the root directory of your Magento installation. Make sure you use the __merge__ function where prompted about overwriting existing files and folders.
-
-When finished log out of the admin and log back in.
+Soon this extension will be available on Magento Marketplace.
 
 ### 2.2 Installation through Composer
 
-Make sure you have set up [composer to work](https://github.com/Cotya/magento-composer-installer) with your Magento install.
+1. On the command line, go to your Magento root folder.
+2. Run the following command to add the extension to your codebase:
+
 `
-composer require wezz/yehhpay-m1
+composer require wezz/yehhpay-m2
 `
 
-When finished log out of the admin and log back in.
+3. Enable the extension in Magento using the following commands
+
+`
+php bin/magento module:enable Wezz_Yehhpay
+php bin/magento setup:upgrade
+php bin/magento cache:clean
+php bin/magento setup:static-content:deploy
+`
+
+Now, you can log in to the Magento backend and configure and enable the extension.
 
 ## Configuration
 
 Navigate to the module configuration using the following path:
 
-__System__ -> __Configuration__ -> __Sales__ -> Yehhpay
+__Stores__ -> __Configuration__ -> __Sales__ -> Yehhpay
 
 ### Fields
 
