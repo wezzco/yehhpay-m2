@@ -1,6 +1,7 @@
 {
     "name": "wezz/yehhpay-m2",
     "type": "magento2-module",
+    "version": "1.0.3",
     "description": "Yehhpay Payment Extension For Magento 2",
     "keywords": ["yehhpay","magento","magento2","m2"],
     "homepage": "https://github.com/wezzco/yehhpay-m2",
