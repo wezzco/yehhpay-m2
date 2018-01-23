@@ -1,0 +1,60 @@
+<?php if ($block->getTransactionId()) { ?>
+    <div>
+        <br/>
+        <img src="<?php echo $this->getViewFileUrl('Wezz_Yehhpay::images/yehhpay-logo.png'); ?>" />
+
+        <div>
+            <?php echo $block->escapeHtml(__('Id')); ?> <?php echo $block->getTransactionId(); ?>
+        </div>
+
+        <div>
+            <?php echo $block->getConsumerStatus(); ?>
+        </div>
+
+        <?php if ($block->getShowCost()) { ?>
+        <div>
+            <?php echo $block->escapeHtml(__('Cost')); ?> <?php echo $block->getCost(); ?>
+        </div>
+        <?php } ?>
+
+        <div>
+            <?php echo $block->getStateStatus(); ?>
+        </div>
+
+        <?php if ($block->getUrlSuspend()) { ?>
+            <form method="post"
+                  action="<?php echo $block->getUrlSuspend() ?>">
+
+                <br />
+
+                    <div>
+                        <input class="input-text" type="date"
+                               name="suspendDate"
+                               required
+                               style="width:168px;height:32px;"
+                               value="<?php echo $block->getResumeDate() ?>"
+                               min="<?php echo $block->getStart() ?>"
+                               max="<?php echo $block->getEnd() ?> "/>
+                    </div>
+
+                <br />
+
+                <button type="submit" class="action-default scalable action-secondary save">
+                    <span>
+                        <?php echo $block->escapeHtml(__('Suspend transaction')); ?>
+                    </span>
+                </button>
+            </form>
+        <?php } ?>
+
+        <br/>
+
+        <?php if ($block->getUrlResume()) { ?>
+            <a style="width:168px;" class="action-default scalable action-secondary save" href="<?php echo $block->getUrlResume() ?>">
+                <span>
+                    <?php echo $block->escapeHtml(__('Resume transaction')); ?>
+                </span>
+            </a>
+        <?php } ?>
+    </div>
+<?php } ?>

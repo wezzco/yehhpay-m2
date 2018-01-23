@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="sales" translate="label" sortOrder="400">
+            <label>Sales</label>
+        </tab>
+        <section id="yehhpay" translate="label" type="text" sortOrder="302" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>
+                <![CDATA[<img height="20px" src="/pub/static/adminhtml/Magento/backend/en_US/Wezz_Yehhpay/images/yehhpay-logo.png">]]>
+            </label>
+            <tab>sales</tab>
+            <resource>Magento_Sales::sales_pdf</resource>
+            <group id="yehhpay" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <comment>
+                    <![CDATA[<h3>Need help?</h3><p>This is the official Yehhpay extension for Magento 2. The extension is developed by <a href="https://www.wezz.nl/" target="_blank">Wezz e-Commerce</a>. Do you need help installing? Read the documentation, FAQ or ask us a question <a href="https://www.wezz.co/extensions/yehhpay" target="_blank">here</a>. </p><h3>Signup and Authentification</h3><p>Don't have an account yet? Obtain your account credentials <a href="https://account.postcode.nl/registreer" target="_blank">here</a>.</p>]]>
+                </comment>
+
+                <field id="active" translate="label comment" sortOrder="1" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="payment_mode" translate="label comment" sortOrder="2" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Payment mode</label>
+                    <source_model>Wezz\Yehhpay\Model\Config\Source\Mode</source_model>
+                </field>
+
+                <field id="application_key" translate="label comment" sortOrder="3" type="text" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <validate>required-entry</validate>
+                    <label>Application key</label>
+                </field>
+
+                <field id="application_secret" translate="label comment" sortOrder="4" type="text" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <validate>required-entry</validate>
+                    <label>Application secret</label>
+                </field>
+
+                <field id="service_identifier" translate="label comment" sortOrder="5" type="text" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <validate>required-entry validate-length-custom minimum-length-2 maximum-length-16</validate>
+                    <label>Service Identifier</label>
+                </field>
+
+                <field id="min_order_total" translate="label comment" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum Order Total</label>
+                    <validate>required-entry validate-order-min validate-digits-range digits-range-0-299</validate>
+                    <comment>For orders below this amount this payment method is unavailable.</comment>
+                </field>
+
+                <field id="max_order_total" translate="label comment" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Maximum Order Total</label>
+                    <validate>required-entry validate-order-max validate-digits-range digits-range-1-300</validate>
+                    <comment>For orders above this amount this payment method is unavailable. Yehhpay does not accept orders over € 300.</comment>
+                </field>
+            </group>
+            <group id="advanced" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Advanced</label>
+
+                <field id="check_address" translate="label" sortOrder="5" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Check if billing and delivery addresses are the same</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="title" translate="label comment" sortOrder="6" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[<h3>Frontend label</h3>]]></label>
+                </field>
+
+                <field id="payment_success_status" translate="label comment" sortOrder="7" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Payment success status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                </field>
+
+                <field id="payment_failed_status" translate="label comment" sortOrder="8" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Payment failed status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                </field>
+
+                <field id="sallowspecific" translate="label comment" type="select" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Payment from Applicable Countries</label>
+                    <frontend_class>shipping-applicable-country</frontend_class>
+                    <source_model>Magento\Shipping\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+
+                <field id="specificcountry" translate="label comment" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Payment from Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

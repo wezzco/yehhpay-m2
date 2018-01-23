@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+    <default>
+        <payment>
+            <yehhpay>
+                <payment_action>authorize</payment_action>
+                <model>Wezz\Yehhpay\Model\PaymentMethod</model>
+                <active>1</active>
+                <title>Yehhpay</title>
+                <code>yehhpay</code>
+                <can_use_internal>1</can_use_internal>
+            </yehhpay>
+        </payment>
+        <yehhpay>
+            <yehhpay>
+                <min_order_total>0</min_order_total>
+                <max_order_total>300</max_order_total>
+            </yehhpay>
+            <advanced>
+                <check_address>1</check_address>
+                <title>Pay afterwards with Yehhpay</title>
+                <payment_success_status>processing</payment_success_status>
+                <payment_failed_status>pending</payment_failed_status>
+            </advanced>
+        </yehhpay>
+    </default>
+</config>
+
+
+
+
